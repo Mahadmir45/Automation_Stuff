@@ -18,3 +18,7 @@ Each folder is self-contained and includes:
 - an implementation starter
 - a project README with architecture and next steps
 - a clear extension path to production-level outcomes
+
+## Portfolio Site
+
+- GitHub Pages URL: `https://mahadmir45.github.io/Automation_Stuff/`
