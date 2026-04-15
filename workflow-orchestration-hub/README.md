@@ -12,4 +12,5 @@ A blueprint for orchestrating engineering automations across n8n, internal APIs,
 ## Included
 
 - `workflows/example-ingest.json`: n8n-style workflow example
-- `src/orchestration_hub/router.py`: lightweight routing logic for API-driven tasks
+- `src/orchestration_hub/router.py`: routing table with configurable dead-letter handling
+- `tests/test_router.py`: route and fallback behavior tests

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 
 	"github.com/example/reddit-wallpaper-archiver/internal/reddit"
@@ -8,9 +9,13 @@ import (
 )
 
 func main() {
+	manifestPath := flag.String("manifest-path", "data/manifest.json", "output path for JSON manifest")
+	flag.Parse()
+
 	posts := []reddit.SavedPost{
 		{ID: "a1", Subreddit: "wallpapers", URL: "https://example.com/one.jpg", Title: "Aurora"},
 		{ID: "a2", Subreddit: "golang", URL: "https://example.com/two.jpg", Title: "Not wallpaper"},
+		{ID: "a3", Subreddit: "wallpaper", URL: "https://example.com/one.jpg", Title: "Duplicate"},
 	}
 
 	filtered := reddit.FilterWallpaperPosts(posts)
@@ -23,9 +28,9 @@ func main() {
 		})
 	}
 
-	if err := storage.WriteManifest("data/manifest.json", assets); err != nil {
+	if err := storage.WriteManifest(*manifestPath, assets); err != nil {
 		log.Fatal(err)
 	}
 
-	log.Printf("Archived %d wallpaper assets", len(assets))
+	log.Printf("Archived %d wallpaper assets to %s", len(assets), *manifestPath)
 }

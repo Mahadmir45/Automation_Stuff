@@ -7,10 +7,17 @@ Internal automation API that standardizes server build requests and triggers dow
 - receives infra requests from dev teams
 - validates tagging and environment rules
 - prepares payloads for TeamCity/API-driven provisioning
-- can be fronted by a simple web UI
+- returns request IDs for traceability
+- health endpoint for uptime checks (`/health`)
 
 ## Run
 
 ```bash
 python src/infra_portal/app.py
+```
+
+Custom host/port:
+
+```bash
+python src/infra_portal/app.py --host 0.0.0.0 --port 8081
 ```

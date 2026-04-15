@@ -14,13 +14,15 @@ Automates embedded-system HTTP/API tests with `pytest`, generates technical docs
 
 1. Create a virtual environment.
 2. Install dependencies from `requirements.txt`.
-3. Run `pytest`.
-4. Build docs with `sphinx-build -b html docs docs/_build`.
+3. Run fast unit tests: `pytest -m "not integration"`.
+4. Run full suite against target: `python src/embedded_test_automation/runner.py --base-url http://target-ip:8000`.
+5. Build docs with `sphinx-build -b html docs docs/_build`.
 
 ## What This Starter Includes
 
-- `src/embedded_test_automation/runner.py`: sample test execution orchestrator
+- `src/embedded_test_automation/runner.py`: CLI-enabled test execution orchestrator with timeout controls
 - `tests/test_health_endpoint.py`: sample API smoke test
+- `tests/test_runner.py`: command construction unit test
 - `docs/index.rst`: docs scaffold with doctest support
 
 ## Production Extensions

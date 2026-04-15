@@ -1,0 +1,1 @@
+"""Embedded test automation package."""
